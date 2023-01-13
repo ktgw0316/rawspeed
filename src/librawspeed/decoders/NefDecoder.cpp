@@ -214,7 +214,7 @@ void NefDecoder::DecodeUncompressed() {
 
   mRaw->dim = iPoint2D(width, height);
 
-  if (width == 0 || height == 0 || width > 8288 || height > 5520)
+  if (width == 0 || height == 0 /* || width > 8288 || height > 5520 */)
     ThrowRDE("Unexpected image dimensions found: (%u; %u)", width, height);
 
   if (counts->count != offsets->count) {
@@ -370,8 +370,8 @@ void NefDecoder::DecodeSNefUncompressed() {
   uint32_t width = raw->getEntry(IMAGEWIDTH)->getU32();
   uint32_t height = raw->getEntry(IMAGELENGTH)->getU32();
 
-  if (width == 0 || height == 0 || width % 2 != 0 || width > 3680 ||
-      height > 2456)
+  if (width == 0 || height == 0 || width % 2 != 0 /* || width > 3680 ||
+      height > 2456 */)
     ThrowRDE("Unexpected image dimensions found: (%u; %u)", width, height);
 
   mRaw->dim = iPoint2D(width, height);

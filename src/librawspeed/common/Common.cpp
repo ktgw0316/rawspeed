@@ -36,6 +36,7 @@ writeLog(DEBUG_PRIO priority, const char* format, ...) {
 #else
 
 void writeLog(DEBUG_PRIO priority, const char* format, ...) {
+#if 0
 #ifndef _DEBUG
   if (priority < DEBUG_PRIO_INFO)
 #endif // _DEBUG
@@ -55,6 +56,7 @@ void writeLog(DEBUG_PRIO priority, const char* format, ...) {
   if (priority < DEBUG_PRIO_INFO)
 #endif // _DEBUG
     fprintf(stdout, "%s", "\n");
+#endif
 }
 
 #endif

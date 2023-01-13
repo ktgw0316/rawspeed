@@ -72,7 +72,7 @@ RawImage Rw2Decoder::decodeRawInternal() {
   uint32_t width = raw->getEntry(static_cast<TiffTag>(2))->getU16();
 
   if (isOldPanasonic) {
-    if (width == 0 || height == 0 || width > 4330 || height > 2751)
+    if (width == 0 || height == 0 /* || width > 4330 || height > 2751 */)
       ThrowRDE("Unexpected image dimensions found: (%u; %u)", width, height);
 
     TiffEntry *offsets = raw->getEntry(STRIPOFFSETS);

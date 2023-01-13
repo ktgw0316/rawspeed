@@ -45,12 +45,13 @@ template <typename T>
     "Don't have thread-local-storage! Exception text may be garbled if used multithreaded"
   static char buf[bufSize];
 #endif
-
+#if 0
   va_list val;
   va_start(val, fmt);
   vsnprintf(buf.data(), sizeof(buf), fmt, val);
   va_end(val);
   writeLog(DEBUG_PRIO_EXTRA, "EXCEPTION: %s", buf.data());
+#endif
   throw T(buf.data());
 }
 

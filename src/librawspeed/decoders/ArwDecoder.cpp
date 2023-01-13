@@ -186,8 +186,8 @@ RawImage ArwDecoder::decodeRawInternal() {
     }
   }
 
-  if (width == 0 || height == 0 || height % 2 != 0 || width > 9600 ||
-      height > 6376)
+  if (width == 0 || height == 0 || height % 2 != 0 /* || width > 9600 ||
+      height > 6376 */)
     ThrowRDE("Unexpected image dimensions found: (%u; %u)", width, height);
 
   bool arw1 = uint64_t(counts->getU32()) * 8 != width * height * bitPerPixel;
@@ -241,7 +241,7 @@ void ArwDecoder::DecodeUncompressed(const TiffIFD* raw) {
 
   mRaw->dim = iPoint2D(width, height);
 
-  if (width == 0 || height == 0 || width > 9600 || height > 6376)
+  if (width == 0 || height == 0 /* || width > 9600 || height > 6376 */)
     ThrowRDE("Unexpected image dimensions found: (%u; %u)", width, height);
 
   if (c2 == 0)

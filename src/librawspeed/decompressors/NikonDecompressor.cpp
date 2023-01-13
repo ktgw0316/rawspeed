@@ -442,8 +442,8 @@ NikonDecompressor::NikonDecompressor(const RawImage& raw, ByteStream metadata,
       mRaw->getBpp() != sizeof(uint16_t))
     ThrowRDE("Unexpected component count / data type");
 
-  if (mRaw->dim.x == 0 || mRaw->dim.y == 0 || mRaw->dim.x % 2 != 0 ||
-      mRaw->dim.x > 8288 || mRaw->dim.y > 5520)
+  if (mRaw->dim.x == 0 || mRaw->dim.y == 0 || mRaw->dim.x % 2 != 0 /* ||
+      mRaw->dim.x > 8288 || mRaw->dim.y > 5520 */)
     ThrowRDE("Unexpected image dimensions found: (%u; %u)", mRaw->dim.x,
              mRaw->dim.y);
 

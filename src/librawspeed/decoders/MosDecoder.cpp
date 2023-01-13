@@ -113,7 +113,7 @@ RawImage MosDecoder::decodeRawInternal() {
   uint32_t height = raw->getEntry(IMAGELENGTH)->getU32();
 
   // FIXME: could be wrong. max "active pixels" - "80 MP"
-  if (width == 0 || height == 0 || width > 10328 || height > 7760)
+  if (width == 0 || height == 0 /* || width > 10328 || height > 7760 */)
     ThrowRDE("Unexpected image dimensions found: (%u; %u)", width, height);
 
   mRaw->dim = iPoint2D(width, height);
